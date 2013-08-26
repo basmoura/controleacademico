@@ -8,7 +8,7 @@ Iniciando o projeto
 
 Clonando o projeto git no seu computador
 ```
-git clone https://github.com/basmoura/controleacademicomobile.git
+git clone https://github.com/basmoura/controleacademico.git
 ```
 
 Baixe as gems necessárias para roda o projeto
