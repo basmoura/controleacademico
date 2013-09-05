@@ -5,8 +5,8 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Database
 gem 'pg'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,6 +33,15 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
+
+# Server
+gem 'thin'
+
+# Forms
+gem 'simple_form'
+
+# Pagination
+gem 'will_paginate'
 
 # To use debugger
 # gem 'debugger'

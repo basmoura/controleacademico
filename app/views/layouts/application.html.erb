@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Controleacademico</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Controle Acadêmico</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<%= yield %>
+	<% flash.each do |key, f| %>
+	<div class="<%= key %>"><%= f %>
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+	</div>
+	<% end %>
+	<%= yield %>
 
 </body>
 </html>
