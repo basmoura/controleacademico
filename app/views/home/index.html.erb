@@ -34,7 +34,7 @@
         <div class="pull-right">
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), "#", class: "add-work toggle-trigger", data: { target: ".work-form" }  %>
         </div>
-        <div class="<%= "hide" if @work.new_record? %> work-form">
+        <div class="<%= "hide" if @work.new_record? && @work.errors.blank? %> work-form">
           <%= render "works/form" %>
         </div>
       </div>
