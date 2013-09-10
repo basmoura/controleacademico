@@ -15,15 +15,19 @@
 //= require_tree .
 
 $(function(){
-    $('.iframe').fancybox({
-        title: ""
-    });
+  $('.iframe').fancybox({
+    title: ""
+  });
 
-    $('.btn-salvar').click(function() {
-    	parent.$.fancybox.close();
-    });
+  $('.btn-salvar').click(function() {
+    parent.$.fancybox.close();
+  });
 
-    $('.btn-t').click(function() {
-			location.reload();    	
-    })
- });
+  $('.btn-t').click(function() {
+    location.reload();
+  });
+
+  $('.toggle-trigger').click(function(){
+    $($(this).data("target")).toggleClass("hide");
+  });
+});

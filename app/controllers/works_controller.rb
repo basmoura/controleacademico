@@ -19,30 +19,32 @@ class WorksController < ApplicationController
     @work = Work.new(params[:work])
 
     if @work.save
-      redirect_to works_path
+      redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
     else
-      render :new
+      @works = Work.all
+      render "home/index"
     end
   end
 
   def edit
-    render :layout => false
+    @works = Work.all
+    render "home/index"
   end
 
   def update
     if @work.update_attributes(params[:work])
-      redirect_to works_path
+      redirect_to root_path
       flash["alert alert-success"] = "Trabalho atualizado com sucesso."
     else
-      render :edit
+      render "home/index"
     end
   end
 
   def destroy
     @work.destroy
 
-    redirect_to works_path
+    redirect_to root_path
     flash["alert alert-success"] = "Trabalho removido com sucesso."
   end
 

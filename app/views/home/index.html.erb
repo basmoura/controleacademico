@@ -29,10 +29,13 @@
   </div>
   <div class="col-md-6">
     <div class="panel panel-info">
-      <div class="panel-heading">	
+      <div class="panel-heading">
         Trabalhos
         <div class="pull-right">
-          <%= link_to content_tag(:i, nil, class: 'icon-plus'), new_work_path, :title => "Exibir", class: "iframe", "data-fancybox-type" => "iframe" %>
+          <%= link_to content_tag(:i, nil, class: 'icon-plus'), "#", class: "add-work toggle-trigger", data: { target: ".work-form" }  %>
+        </div>
+        <div class="<%= "hide" if @work.new_record? %> work-form">
+          <%= render "works/form" %>
         </div>
       </div>
       <table class="table">
@@ -46,7 +49,7 @@
           <% @works.each do |work| %>
             <tr>
               <td>
-                <%= link_to(content_tag(:i, nil, class: 'icon-pencil'), edit_work_path(work), class: 'iframe', "data-fancybox-type" => "iframe") %>
+                <%= link_to(content_tag(:i, nil, class: 'icon-pencil'), edit_work_path(work)) %>
                 <%= link_to(content_tag(:i, nil, class: 'icon-trash'), work_path(work), title: 'Remover', confirm: "Deseja remover este trabalho?", method: :delete) %>
               </td>
               <td><%= work.title %></td>
