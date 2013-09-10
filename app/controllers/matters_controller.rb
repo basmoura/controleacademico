@@ -16,7 +16,6 @@ class MattersController < ApplicationController
 
 	def create
 		@matter = Matter.new(params[:matter])
-
 		if @matter.save
 			redirect_to matters_path
 			flash["alert alert-success"] = "Matéria cadastrada com sucesso."

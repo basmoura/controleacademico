@@ -4,6 +4,7 @@ Controleacademico::Application.routes.draw do
   get "/materias", to: "matters#index"
 
   resources :matters
+  resources :works
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,25 @@
+<% if @work.errors.any? %>
+<div class="alert alert-danger">
+	Há erros no formulário, por favor verifique.
+</div>
+<% end %>
+
+<%= simple_form_for @work, defaults: { label: false } do |f| %>
+<ul class="list-unstyled">
+	<li>
+		<%= f.label :title, "Tema" %>
+		<%= f.input :title, input_html: { class: 'form-control' } %>
+	</li>
+	<li>
+		<%= f.label :matter_id, "Matéria" %>
+		<%= f.association :matter, prompt: "Selecione", input_html: { class: 'form-control' } %>
+	</li>
+	<li>
+		<%= f.label :final_dt, "Data da Apresentação" %>
+		<%= f.input :final_dt, input_html: { class: 'form-control' } %>
+	</li>
+	<li>
+		<%= f.submit "Salvar", class: 'btn-salvar' %>
+	</li>
+</ul>
+<% end %>
