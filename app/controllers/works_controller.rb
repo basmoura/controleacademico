@@ -1,54 +1,54 @@
 class WorksController < ApplicationController
-	before_filter :set_work, except: [:index, :new, :create]
+  before_filter :set_work, except: [:index, :new, :create]
 
-	def index
-		@works = Work.all
-	end
+  def index
+    @works = Work.all
+  end
 
-	def show
+  def show
 
-	end
+  end
 
-	def new
-		@work = Work.new
-		
-		render :layout => false
-	end
+  def new
+    @work = Work.new
 
-	def create
-		@work = Work.new(params[:work])
+    render :layout => false
+  end
 
-		if @work.save
-			redirect_to works_path
-			flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
-		else
-			render :new
-		end
-	end
+  def create
+    @work = Work.new(params[:work])
 
-	def edit
-		render :layout => false
-	end
+    if @work.save
+      redirect_to works_path
+      flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
+    else
+      render :new
+    end
+  end
 
-	def update
-		if @work.update_attributes(params[:work])
-			redirect_to works_path
-			flash["alert alert-success"] = "Trabalho atualizado com sucesso."
-		else
-			render :edit
-		end
-	end
+  def edit
+    render :layout => false
+  end
 
-	def destroy
-		@work.destroy
+  def update
+    if @work.update_attributes(params[:work])
+      redirect_to works_path
+      flash["alert alert-success"] = "Trabalho atualizado com sucesso."
+    else
+      render :edit
+    end
+  end
 
-		redirect_to works_path
-		flash["alert alert-success"] = "Trabalho removido com sucesso."
-	end
+  def destroy
+    @work.destroy
 
-	private
-	def set_work
-		@work = Work.find(params[:id])
-	end
+    redirect_to works_path
+    flash["alert alert-success"] = "Trabalho removido com sucesso."
+  end
+
+  private
+  def set_work
+    @work = Work.find(params[:id])
+  end
 
 end
