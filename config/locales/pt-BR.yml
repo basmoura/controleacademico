@@ -1,4 +1,12 @@
 pt-BR:
+  activerecord:
+    models:
+      matter: Matéria
+    attributes:
+      matter:
+        title: Nome
+        teacher: Professor(a)
+        credits: Créditos
   will_paginate:
     previous_label: "<"
     next_label: ">"
