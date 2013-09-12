@@ -1,12 +1,14 @@
 pt-BR:
-  activerecord:
-    models:
-      matter: Matéria
-    attributes:
+  simple_form:
+    labels:
       matter:
         title: Nome
         teacher: Professor(a)
         credits: Créditos
+      work:
+        title: Tema
+        matter: Matéria
+        final_dt: Data da Apresentação
   will_paginate:
     previous_label: "<"
     next_label: ">"
