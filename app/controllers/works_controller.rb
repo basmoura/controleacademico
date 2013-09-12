@@ -22,13 +22,13 @@ class WorksController < ApplicationController
       redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
     else
-      @works = Work.all
+      @works = Work.order("final_dt").paginate(page: params[:page])
       render "home/index"
     end
   end
 
   def edit
-    @works = Work.all
+    @works = Work.order("final_dt").paginate(page: params[:page])
     render "home/index"
   end
 
