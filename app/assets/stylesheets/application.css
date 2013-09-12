@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.datepicker
  */
-
+header { padding-bottom: 15px; }
 .top-row { background: #e3e6e4; box-shadow: 0 0 4px #d9ced8; padding: 5px 0 0 5px; color: black; text-shadow: 1px 1px 0px white; }
 .img-user { width: 120px; height: 100px; }

@@ -12,12 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-pt-BR
 //= require_tree .
 
 $(function(){
-  $('.iframe').fancybox({
-    title: ""
-  });
+    $(".datepicker").datepicker({
+        showButtonPanel: true,
+        closeText: "Fechar"
+    });
 
   $('.btn-salvar').click(function() {
     parent.$.fancybox.close();
@@ -27,7 +30,7 @@ $(function(){
     location.reload();
   });
 
-  $('.toggle-trigger').click(function(){
+  $('.toggle-trigger').click(function() {
     $($(this).data("target")).toggleClass("hide");
   });
 });

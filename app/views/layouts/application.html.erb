@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Controle Acadêmico</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="top-row col-md-12">
-        <%= image_tag("breno.jpg", class: 'img-circle img-user') %>
-        <div class="caption">
-          <span>Breno Moura</span>
-        </div>
+<head>
+  <title>Controle Acadêmico</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="top-row col-md-12">
+      <%= image_tag("rails.png", class: 'img-circle img-user') %>
+      <div class="caption">
+        <span>Breno Moura</span>
       </div>
-    </header>
+    </div>
+  </header>
+  <div class="col-md-12">
     <% flash.each do |key, f| %>
-      <div class="<%= key %>"><%= f %>
+    <div class="<%= key %>"><%= f %>
       <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
-  <% end %>
+    <% end %>
+  </div>
   <br/>
   <div class="col-md-12">
     <%= yield %>
