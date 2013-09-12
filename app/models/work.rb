@@ -8,11 +8,6 @@ class Work < ActiveRecord::Base
   self.per_page = 5
 
   def final_dt
-      read_attribute(:final_dt).strftime("%d/%m/%Y") unless read_attribute(:final_dt).nil?
+    read_attribute(:final_dt).strftime("%d/%m/%Y") unless read_attribute(:final_dt).nil?
   end
-
-  def final_dt=(final_dt)
-    write_attribute(:final_dt, DateTime.parse(final_dt)) unless read_attribute(:final_dt).nil?
-  end
-
- end
+end
