@@ -4,4 +4,15 @@ class Work < ActiveRecord::Base
   validates_presence_of :title, :final_dt, :matter_id
 
   belongs_to :matter
-end
+
+  self.per_page = 5
+
+  def final_dt
+      read_attribute(:final_dt).strftime("%d/%m/%Y") unless read_attribute(:final_dt).nil?
+  end
+
+  def final_dt=(final_dt)
+    write_attribute(:final_dt, DateTime.parse(final_dt)) unless read_attribute(:final_dt).nil?
+  end
+
+ end
