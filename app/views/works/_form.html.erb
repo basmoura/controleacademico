@@ -5,32 +5,38 @@
 <% end %>
 
 <%= simple_form_for @work, defaults: { label_html: { class: 'form-title' } }, html: { class: 'form-horizontal' } do |f| %>
-<div class="col-md-12">
-  <ul class="list-unstyled">
-    <li>
-    <%= f.input :title, input_html: { class: 'form-control' } %>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.input :title, input_html: { class: 'form-control' } %>
+      </li>
+    </ul>
+  </div>
 </div>
-<div class="col-md-6">
-  <ul class="list-unstyled">
-    <li>
-    <%= f.association :matter, prompt: "Selecione", input_html: { class: 'form-control' } %>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.association :matter, prompt: "Selecione", input_html: { class: 'form-control' } %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.input :final_dt, as: :string, input_html: { class: 'form-control datepicker', value: f.object.final_dt } %>
+      </li>
+    </ul>
+  </div>
 </div>
-<div class="col-md-6">
-  <ul class="list-unstyled">
-    <li>
-    <%= f.input :final_dt, as: :string, input_html: { class: 'form-control datepicker', value: f.object.final_dt } %>
-    </li>
-  </ul>
-</div>
-<div class="col-md-12">
-  <ul class="list-unstyled">
-    <li>
-    <%= f.submit "Salvar", class: 'btn btn-primary btn-salvar' %>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.submit "Salvar", class: 'btn btn-primary btn-salvar' %>
+      </li>
+    </ul>
+  </div>
 </div>
 <% end %>
