@@ -9,6 +9,11 @@ pt-BR:
         title: Tema
         matter: Matéria
         final_dt: Data da Apresentação
+      exam:
+        dt_exam: Data da Prova
+        location: Sala
+        matter: Matéria
+        grade: Nota
   will_paginate:
     previous_label: "<"
     next_label: ">"
@@ -121,7 +126,7 @@ pt-BR:
     format: ! '%{attribute} %{message}'
     messages:
       accepted: deve ser aceito
-      blank: não pode ficar em branco
+      blank: ! '* Não pode ficar em branco'
       confirmation: não está de acordo com a confirmação
       empty: não pode ficar vazio
       equal_to: deve ser igual a %{count}
