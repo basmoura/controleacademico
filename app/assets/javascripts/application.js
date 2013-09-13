@@ -17,7 +17,9 @@
 $(function(){
     $(".datepicker").datepicker({
       language: 'pt-BR',
-      format: 'dd/mm/yyyy'
+      format: 'dd/mm/yyyy',
+      daysOfWeekDisabled: '0',
+      todayBtn: 'linked',
     });
 
   $('.btn-salvar').click(function() {
