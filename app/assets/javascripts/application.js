@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
-//= require jquery.ui.datepicker-pt-BR
 //= require_tree .
 
 $(function(){
     $(".datepicker").datepicker({
-        showButtonPanel: true,
-        closeText: "Fechar"
+      language: 'pt-BR',
+      format: 'dd/mm/yyyy'
     });
 
   $('.btn-salvar').click(function() {
