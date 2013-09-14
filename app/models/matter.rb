@@ -7,4 +7,5 @@ class Matter < ActiveRecord::Base
   validates_numericality_of :credits, greater_than: 1, less_than: 12
 
   has_many :works
+  has_many :exams
 end
