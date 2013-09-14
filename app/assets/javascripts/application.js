@@ -22,10 +22,6 @@ $(function(){
       todayBtn: 'linked',
     });
 
-  $('.btn-salvar').click(function() {
-    parent.$.fancybox.close();
-  });
-
   $('.btn-t').click(function() {
     location.reload();
   });
