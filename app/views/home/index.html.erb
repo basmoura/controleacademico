@@ -4,7 +4,12 @@
       <div class="panel-heading">
         Provas
         <div class="pull-right">
-          <%= link_to content_tag(:i, nil, class: 'icon-plus'), '#' %>
+          <%= link_to content_tag(:i, nil, class: 'icon-plus'), '#', 
+          class: "add-exam toggle-trigger", data: { target: ".exam-form" } %>
+        </div>
+        <% @exam = Exam.new if @exams.nil? %>
+        <div class="<%= "hide" if @exam.new_record? && @exam.errors.blank? %> exam-form">
+          <%= render "exams/form" %>
         </div>
       </div>
       <table class="table table-striped">
@@ -35,6 +40,7 @@
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), "#", 
           class: "add-work toggle-trigger", data: { target: ".work-form" }  %>
         </div>
+        <% @work = Work.new if @works.nil? %>
         <div class="<%= "hide" if @work.new_record? && @work.errors.blank? %> work-form">
           <%= render "works/form" %>
         </div>
@@ -51,7 +57,8 @@
         <tr>
           <td>
             <%= link_to(content_tag(:i, nil, class: 'icon-pencil'), edit_work_path(work)) %>
-            <%= link_to(content_tag(:i, nil, class: 'icon-trash'), work_path(work), title: 'Remover', confirm: "Deseja remover este trabalho?", method: :delete) %>
+            <%= link_to(content_tag(:i, nil, class: 'icon-trash'), work_path(work), 
+            title: 'Remover', confirm: "Deseja remover este trabalho?", method: :delete) %>
           </td>
           <td><%= work.title %></td>
           <td><%= work.matter.title %></td>
@@ -62,9 +69,7 @@
       </table>
       <div class="panel-footer text-center">
         <%= will_paginate @works %>
-        <% if @works.count > 1 %>
-        <%= page_entries_info @works %> 
-        <% end %>
+        <%= page_entries_info @works if @works.count >= 1 %> 
       </div>
     </div>
   </div>
@@ -72,7 +77,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">	
+      <div class="panel-heading">
         Controle de Notas
       </div>
       <table class="table">
