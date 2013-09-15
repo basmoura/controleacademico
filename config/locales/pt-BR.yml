@@ -143,8 +143,8 @@ pt-BR:
       odd: deve ser ímpar
       record_invalid: ! 'A validação falhou: %{errors}'
       taken: já está em uso
-      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
-      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      too_long: ! '* É muito longo (máximo: %{count} caracteres)'
+      too_short: ! '* É muito curto (mínimo: %{count} caracteres)'
       wrong_length: não possui o tamanho esperado (%{count} caracteres)
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
