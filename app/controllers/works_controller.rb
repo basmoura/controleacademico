@@ -17,7 +17,6 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(params[:work])
-
     if @work.save
       redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
