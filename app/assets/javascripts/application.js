@@ -20,7 +20,8 @@ $(function(){
       format: 'dd/mm/yyyy',
       daysOfWeekDisabled: '0',
       todayBtn: 'linked',
-    });
+      autoclose: true
+    }).mask('00/00/0000');
 
   $('.btn-t').click(function() {
     location.reload();
