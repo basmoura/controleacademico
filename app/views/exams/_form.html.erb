@@ -4,15 +4,47 @@
 </div>
 <% end %>
 
-<%= simple_form_for @exam, html: { class: 'form-horizontal' } do |f| %>
-<ul class="list-inline">
-  <li>
+<%= simple_nested_form_for @exam, defaults: { label_html: { class: 'form-title' } }, html: { class: 'form-horizontal' } do |f| %>
+<div class="row">
+  <div class="col-md-6">
     <ul class="list-unstyled">
       <li>
       <%= f.association :matter, prompt: "Selecione", input_html: { class: 'form-control' } %>
       </li>
     </ul>
-  </li>
-</ul>
+  </div>
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.input :dt_exam, as: :string, input_html: { class: 'form-control datepicker' } %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.input :location, input_html: { class: 'form-control' } %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.input :grade, input_html: { class: 'form-control' } %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-12">
+    <ul class="list-unstyled">
+      <li>
+      <%= f.simple_fields_for :subjects do |s| %>
+      <%= s.input :name %>
+      <%= s.link_to_remove "Remover" %>
+      <% end %>
+      <%= f.link_to_add "+", :subjects %>
+      </li>
+    </ul>
+  </div>
+</div>
 <% end %>
 
