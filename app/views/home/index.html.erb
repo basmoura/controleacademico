@@ -19,14 +19,17 @@
           <th>Data</th>
         </thead>
         <tbody>
+        <% @exams = Exam.paginate(page:params[:page]) if @exams.nil? %>
+        <% @exams.each do |exam| %>
         <tr>
           <td>
-            <%= link_to(content_tag(:i, nil, class: 'icon-pencil btn-t'), "#") %>
+            <%= link_to(content_tag(:i, nil, class: 'icon-pencil'), edit_exam_path(exam)) %>
             <%= link_to(content_tag(:i, nil, class: 'icon-trash'), "#") %>
           </td>
-          <td>Desenvolvimento de Software</td>
-          <td>25/11/2013</td>
+          <td><%= exam.matter.title %></td>
+          <td><%= exam.dt_exam %></td>
         </tr>
+        <% end %>
         </tbody>
       </table>
       <div class="panel-footer text-center">Paginação</div>
@@ -53,6 +56,7 @@
           <th>Apresentação</th>
         </thead>
         <tbody>
+        <% @works = Work.paginate(page:params[:page]) if @works.nil? %>
         <% @works.each do |work| %>
         <tr>
           <td>
