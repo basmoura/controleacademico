@@ -1,8 +1,12 @@
+<div class="page-header">
+  <h1><i class="icon-dashboard"></i> Dashboard <small>Resumo das atividades</small></h1>
+</div>
+<h2></h2>
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        Provas
+        <i class="icon-tags"></i> Provas
         <div class="pull-right">
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), '#', 
           class: "add-exam toggle-trigger", data: { target: ".exam-form" } %>
@@ -24,7 +28,8 @@
         <tr>
           <td>
             <%= link_to(content_tag(:i, nil, class: 'icon-pencil'), edit_exam_path(exam)) %>
-            <%= link_to(content_tag(:i, nil, class: 'icon-trash'), "#") %>
+            <%= link_to(content_tag(:i, nil, class: 'icon-trash'), exam_path(exam),
+            title: 'Remover', confirm: "Deseja remover esta prova?", method: :delete) %>
           </td>
           <td><%= exam.matter.title %></td>
           <td><%= exam.dt_exam %></td>
@@ -32,13 +37,20 @@
         <% end %>
         </tbody>
       </table>
-      <div class="panel-footer text-center">Paginação</div>
+      <div class="panel-footer text-center">
+        <%= will_paginate @works %>
+        <% if @works.count >= 1 %>
+        <%= page_entries_info @works %>
+        <% else %>
+        <span>Nenhuma prova cadastrada</span>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
-        Trabalhos
+        <i class="icon-briefcase"></i> Trabalhos
         <div class="pull-right">
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), "#", 
           class: "add-work toggle-trigger", data: { target: ".work-form" }  %>
@@ -73,7 +85,11 @@
       </table>
       <div class="panel-footer text-center">
         <%= will_paginate @works %>
-        <%= page_entries_info @works if @works.count >= 1 %> 
+        <% if @works.count >= 1 %>
+        <%= page_entries_info @works %>
+        <% else %>
+        <span>Nenhum trabalho cadastrado</span>
+        <% end %>
       </div>
     </div>
   </div>
@@ -82,7 +98,7 @@
   <div class="col-md-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        Controle de Notas
+        <i class="icon-bar-charts"></i> Controle de Notas
       </div>
       <table class="table">
         <thead>
