@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  before_filter set_exam except: [:index, :new, :create]
+  before_filter :set_exam, except: [:index, :new, :create]
 
   def index
     @exams = Exam.all
