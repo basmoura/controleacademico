@@ -3,5 +3,9 @@ class Exam < ActiveRecord::Base
 
   belongs_to :matter
   has_many :subjects
-  accepts_nested_attributes_for :subjects
+  accepts_nested_attributes_for :subjects, allow_destroy: true
+
+  def dt_exam
+    read_attribute(:dt_exam).strftime("%d/%m/%Y") unless read_attribute(:dt_exam).nil?
+  end
 end
