@@ -43,6 +43,9 @@ gem 'simple_form'
 # Pagination
 gem 'will_paginate'
 
+# Nested Form
+gem 'nested_form'
+
 # To use debugger
 # gem 'debugger'
 #
