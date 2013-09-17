@@ -11,9 +11,11 @@ pt-BR:
         final_dt: Data da Apresentação
       exam:
         dt_exam: Data da Prova
-        location: Sala
+        location: Local da Prova
         matter: Matéria
-        grade: Nota
+        grade: Preciso Tirar
+      subject:
+        name: Assunto
   will_paginate:
     previous_label: "<"
     next_label: ">"
