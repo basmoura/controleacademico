@@ -34,9 +34,9 @@ class WorksController < ApplicationController
   private
   def set_work
     @works = Work.order("final_dt").paginate(page: params[:work_page])
+    @work = Work.find(params[:id])
     @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
     @exam = Exam.new
     @exam.subjects.build
-    @work = Work.find(params[:id])
   end
 end
