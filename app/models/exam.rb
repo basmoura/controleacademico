@@ -8,4 +8,5 @@ class Exam < ActiveRecord::Base
   def dt_exam
     read_attribute(:dt_exam).strftime("%d/%m/%Y") unless read_attribute(:dt_exam).nil?
   end
+  self.per_page = 5
 end

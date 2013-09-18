@@ -1,14 +1,5 @@
 class WorksController < ApplicationController
-  before_filter :set_work, except: [:index, :new, :create]
-
-  def index
-    @works = Work.all
-  end
-
-  def show
-
-  end
-
+  before_filter :set_work, except: [:new, :create]
   def new
     @work = Work.new
 
@@ -21,13 +12,11 @@ class WorksController < ApplicationController
       redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
     else
-      @works = Work.order("final_dt").paginate(page: params[:page])
       render "home/index"
     end
   end
 
   def edit
-    @works = Work.order("final_dt").paginate(page: params[:page])
     render "home/index"
   end
 
@@ -49,7 +38,10 @@ class WorksController < ApplicationController
 
   private
   def set_work
+    @works = Work.order("final_dt").paginate(page: params[:work_page])
+    @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
+    @exam = Exam.new
+    @exam.subjects.build
     @work = Work.find(params[:id])
   end
-
 end

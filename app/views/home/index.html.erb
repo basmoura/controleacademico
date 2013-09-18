@@ -11,7 +11,6 @@
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), '#', 
           class: "add-exam toggle-trigger", data: { target: ".exam-form" } %>
         </div>
-        <% @exam = Exam.new if @exams.nil? %>
         <div class="<%= "hide" if @exam.new_record? && @exam.errors.blank? %> exam-form">
           <%= render "exams/form" %>
         </div>
@@ -23,7 +22,6 @@
           <th>Data</th>
         </thead>
         <tbody>
-        <% @exams = Exam.paginate(page:params[:page]) if @exams.nil? %>
         <% @exams.each do |exam| %>
         <tr>
           <td>
@@ -38,9 +36,9 @@
         </tbody>
       </table>
       <div class="panel-footer text-center">
-        <%= will_paginate @works %>
-        <% if @works.count >= 1 %>
-        <%= page_entries_info @works %>
+        <%= will_paginate @exams, param_name: :exam_page  %>
+        <% if @exams.count >= 1 %>
+        <%= page_entries_info @exams %>
         <% else %>
         <span>Nenhuma prova cadastrada</span>
         <% end %>
@@ -55,7 +53,6 @@
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), "#", 
           class: "add-work toggle-trigger", data: { target: ".work-form" }  %>
         </div>
-        <% @work = Work.new if @works.nil? %>
         <div class="<%= "hide" if @work.new_record? && @work.errors.blank? %> work-form">
           <%= render "works/form" %>
         </div>
@@ -68,7 +65,6 @@
           <th>Apresentação</th>
         </thead>
         <tbody>
-        <% @works = Work.paginate(page:params[:page]) if @works.nil? %>
         <% @works.each do |work| %>
         <tr>
           <td>
@@ -84,7 +80,7 @@
         </tbody>
       </table>
       <div class="panel-footer text-center">
-        <%= will_paginate @works %>
+        <%= will_paginate @works, param_name: :work_page %>
         <% if @works.count >= 1 %>
         <%= page_entries_info @works %>
         <% else %>
@@ -98,7 +94,7 @@
   <div class="col-md-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <i class="icon-bar-charts"></i> Controle de Notas
+        <i class="icon-bar-chart"></i> Controle de Notas
       </div>
       <table class="table">
         <thead>
