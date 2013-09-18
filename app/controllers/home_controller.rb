@@ -5,5 +5,6 @@ class HomeController < ApplicationController
 
     @exams = Exam.order("dt_exam").paginate(page: params[:page])
     @exam = Exam.new
+    @exam.subjects.build
   end
 end
