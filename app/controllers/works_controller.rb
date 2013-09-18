@@ -1,10 +1,5 @@
 class WorksController < ApplicationController
-  before_filter :set_work, except: [:new, :create]
-  def new
-    @work = Work.new
-
-    render :layout => false
-  end
+  before_filter :set_work, except: [:create]
 
   def create
     @work = Work.new(params[:work])

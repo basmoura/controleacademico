@@ -1,11 +1,5 @@
 class ExamsController < ApplicationController
-  before_filter :set_exam, except: [:new, :create]
-
-  def new
-    @exam = Exam.new
-    @exam.subjects.build
-    render :layout => false
-  end
+  before_filter :set_exam, except: [:create]
 
   def create
     @exam = Exam.new(params[:exam])
