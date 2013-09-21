@@ -1,0 +1,32 @@
+<h3>Matérias</h3>
+<%= link_to "Cadastrar", new_course_path, class: "btn btn-info" %>
+
+<table class="table table-striped">
+  <thead>
+    <th></th>
+    <th>Nome</th>
+    <th>Professor</th>
+    <th>Créditos</th>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+            <%= link_to content_tag(:i, nil, class: "icon-pencil"), edit_course_path(course), class: "btn btn-info btn-xs" %>
+            <%= link_to content_tag(:i, nil, class: "icon-trash"), course_path(course), method: :delete, confirm: "Deseja remover esta matéria?", class: "btn btn-danger btn-xs" %>
+          </div>
+        </td>
+        <td>
+          <%= course.title %>
+        </td>
+        <td>
+          <%= course.teacher %>
+        </td>
+        <td>
+          <%= course.credits %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
