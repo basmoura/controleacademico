@@ -1,11 +1,11 @@
 class Work < ActiveRecord::Base
-  attr_accessible :matter_id, :title, :final_dt
+  attr_accessible :course_id, :title, :final_dt
 
-  validates_presence_of :title, :final_dt, :matter_id
+  validates_presence_of :title, :final_dt, :course_id
   validates_length_of :title, maximum: 40
   validates_length_of :final_dt, is: 10
 #  validate :final_dt_validation, before: [:create]
-  belongs_to :matter
+  belongs_to :course
 
   self.per_page = 5
 

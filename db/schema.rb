@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916223020) do
+ActiveRecord::Schema.define(:version => 20130921014612) do
 
-  create_table "exams", :force => true do |t|
-    t.integer  "matter_id"
-    t.datetime "dt_exam"
-    t.string   "location"
-    t.decimal  "grade"
+  create_table "courses", :force => true do |t|
+    t.string   "title"
+    t.string   "teacher"
+    t.integer  "credits"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "matters", :force => true do |t|
-    t.string   "title"
-    t.string   "teacher"
-    t.integer  "credits"
+  create_table "exams", :force => true do |t|
+    t.integer  "course_id"
+    t.datetime "dt_exam"
+    t.string   "location"
+    t.decimal  "grade"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130916223020) do
 
   create_table "works", :force => true do |t|
     t.string   "title"
-    t.string   "matter_id"
+    t.string   "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.datetime "final_dt"

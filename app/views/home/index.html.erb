@@ -29,7 +29,7 @@
             <%= link_to(content_tag(:i, nil, class: 'icon-trash'), exam_path(exam),
             title: 'Remover', confirm: "Deseja remover esta prova?", method: :delete) %>
           </td>
-          <td><%= exam.matter.title %></td>
+          <td><%= exam.course.title %></td>
           <td><%= exam.dt_exam %></td>
         </tr>
         <% end %>
@@ -73,7 +73,7 @@
             title: 'Remover', confirm: "Deseja remover este trabalho?", method: :delete) %>
           </td>
           <td><%= work.title %></td>
-          <td><%= work.matter.title %></td>
+          <td><%= work.course.title %></td>
           <td><%= work.final_dt %></td>
         </tr>
         <% end %>

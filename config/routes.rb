@@ -1,9 +1,7 @@
 Controleacademico::Application.routes.draw do
   root to: "home#index"
 
-  get "/materias", to: "matters#index"
-
-  resources :matters
+  resources :courses
   resources :works
   resources :exams
   # The priority is based upon order of creation:

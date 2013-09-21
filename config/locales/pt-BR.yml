@@ -16,6 +16,10 @@ pt-BR:
         grade: Preciso Tirar
       subject:
         name: Assunto
+  activerecord:
+    attributes:
+      subject:
+        name: Assunto
   will_paginate:
     previous_label: "<"
     next_label: ">"
