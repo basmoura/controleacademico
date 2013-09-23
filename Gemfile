@@ -46,6 +46,8 @@ gem 'will_paginate'
 # Nested Form
 gem 'nested_form'
 
+# Progress Bar
+gem 'css3-progress-bar-rails', git: 'git://github.com/basmoura/css3-progress-bar-rails.git'
 # To use debugger
 # gem 'debugger'
 #
