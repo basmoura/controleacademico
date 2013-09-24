@@ -10,11 +10,15 @@
  *
  *= require_self
  *= require_tree .
+ *= require 'progress-me'
  */
 * { font-family: 'Open Sans', sans-serif; }
 header { padding-bottom: 15px; }
 .top-row { background: url('bkg.png'); box-shadow: 0 0 4px black; padding: 5px 0 0 5px; color: white; text-shadow: 1px 1px 0px black; }
 .img-user { width: 60px; height: 60px; }
-.panel-heading { font-size: 16px; }
-.form-title { font-size: 14px; }
-.help-inline { color: #b94a48; }
+.panel-heading { font-size: 14px; border-top: 4px solid black; background: white }
+.form-title { font-size: 12px; }
+.help-inline { color: #b94a48; font-size: 12px; }
+.panel-heading th { font-size: 14px }
+.form-control, table { font-size: 12px !important }
+

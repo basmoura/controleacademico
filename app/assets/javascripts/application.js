@@ -31,4 +31,6 @@ $(function(){
   $('.toggle-trigger').click(function() {
     $($(this).data("target")).toggleClass("hide");
   });
+
+  $('.stats').tooltip()
 });

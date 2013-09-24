@@ -7,6 +7,10 @@ class WorksController < ApplicationController
       redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
     else
+      @works = Work.order("final_dt").paginate(page: params[:work_page])
+      @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
+      @exam = Exam.new
+      @exam.subjects.build
       render "home/index"
     end
   end
@@ -29,6 +33,10 @@ class WorksController < ApplicationController
 
     redirect_to root_path
     flash["alert alert-success"] = "Trabalho removido com sucesso."
+  end
+
+  def sections_done
+    work.sections.where("done = true").count
   end
 
   private

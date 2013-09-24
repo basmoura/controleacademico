@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/basmoura/css3-progress-bar-rails.git
-  revision: 3e3aa5a43a708ae4220120231680c10669fad11c
+  revision: e3e7f3afa02980b50313cfa588e569bf6f42de4f
   specs:
     css3-progress-bar-rails (0.5.0)
       rails (>= 3.1)

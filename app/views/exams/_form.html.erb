@@ -37,31 +37,36 @@
     </ul>
   </div>
 </div>
-
-<%= f.simple_fields_for :subjects do |s| %>
 <div class="row">
-  <div class="col-md-12">
-    <ul class="list-unstyled">
-      <li>
-      <%= s.input :name, input_html: { class: 'form-control' } %>
-      <%= s.link_to_remove "Remover" %>
-      </li>
-      <li>
-      </li>
-    </ul>
+  <table id="subjects">
+    <thead>
+      <tr>
+        <th class="col-md-10">Assunto</th>
+        <th class="col-md-2"></th>
+      </tr>
+    </thead>
+    <%= f.simple_fields_for :subjects, defaults: { label: false }, wrapper: false do |s| %>
+    <tr class="fields">
+      <td class="col-md-10"><%= s.input :name, input_html: { class: 'form-control' } %></td>
+      <td class="col-md-2"><%= s.link_to_remove content_tag(:i, nil, class: 'icon-remove') + " Remover", class: 'btn btn-sm btn-danger' %>
+      </tr>
+      <% end %>
+    </table>
   </div>
-</div>
-<% end %>
-<%= f.link_to_add "Adicionar Assunto", :subjects %>
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-unstyled">
-      <li>
-      <%= f.submit "Salvar", class: 'btn btn-primary' %>
-      </li>
-    </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.link_to_add content_tag(:i, nil, class: 'icon-plus') + " Adicionar Assunto", :subjects, data: { target: '#subjects' }, class: 'btn btn-sm btn-default' %>
+    </div>
   </div>
-</div>
-<% end %>
+  <br/>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-unstyled">
+        <li>
+        <%= f.submit "Salvar", class: 'btn btn-primary' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <% end %>
 

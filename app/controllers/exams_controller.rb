@@ -39,6 +39,7 @@ class ExamsController < ApplicationController
     @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
     @exam = Exam.find(params[:id])
     @work = Work.new
+    @work.sections.build
   end
 end
 

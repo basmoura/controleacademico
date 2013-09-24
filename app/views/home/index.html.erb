@@ -6,7 +6,7 @@
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <i class="icon-tags"></i> Provas
+        <i class="icon-file-text-alt"></i> Provas
         <div class="pull-right">
           <%= link_to content_tag(:i, nil, class: 'icon-plus'), '#', 
           class: "add-exam toggle-trigger", data: { target: ".exam-form" } %>
@@ -63,6 +63,7 @@
           <th>Tema</th>
           <th>Matéria</th>
           <th>Apresentação</th>
+          <th>Progresso</th>
         </thead>
         <tbody>
         <% @works.each do |work| %>
@@ -75,6 +76,9 @@
           <td><%= work.title %></td>
           <td><%= work.course.title %></td>
           <td><%= work.final_dt %></td>
+          <td>
+            <%= bootstrap_progress_bar(work.sections_done(work.id), message: work.sections_percent(work.id), color: 'info') %>
+          </td>
         </tr>
         <% end %>
         </tbody>

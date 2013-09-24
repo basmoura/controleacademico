@@ -4,7 +4,7 @@
 </div>
 <% end %>
 
-<%= simple_form_for @work, defaults: { label_html: { class: 'form-title' } }, html: { class: 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for @work, defaults: { label_html: { class: 'form-title' } }, html: { class: 'form-horizontal' } do |f| %>
 <div class="row">
   <div class="col-md-12">
     <ul class="list-unstyled">
@@ -30,6 +30,34 @@
     </ul>
   </div>
 </div>
+<div class="row">
+  <table id="sections">
+    <thead>
+      <tr>
+        <th class="col-md-6">Descrição</th>
+        <th class="col-md-2">Nota</th>
+        <th>Concluído</th>
+        <th></th>
+      </tr>
+    </thead>
+    <%= f.simple_fields_for :sections, defaults: { label: false }, wrapper: false do |s| %>
+    <tr class="fields">
+      <td class="col-md-6"><%= s.input :description, input_html: { class: 'form-control' } %></td>
+      <td class="col-md-2"><%= s.input :grade, input_html: { class: 'form-control'} %></td>
+      <td><%= s.input :done, input_html: { class: 'checkbox'} %></td>
+      <td>
+        <%= s.link_to_remove content_tag(:i, nil, class: 'icon-remove') + " Remover", class: 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= f.link_to_add content_tag(:i, nil, class: 'icon-plus') + " Adicionar Etapa", :sections, data: { target: '#sections' }, class: 'btn btn-sm btn-default' %>
+  </div>
+</div>
+<br/>
 <div class="row">
   <div class="col-md-12">
     <ul class="list-unstyled">

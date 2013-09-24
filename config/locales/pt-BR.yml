@@ -1,21 +1,25 @@
 pt-BR:
   simple_form:
     labels:
-      matter:
+      course:
         title: Nome
         teacher: Professor(a)
         credits: Créditos
       work:
         title: Tema
-        matter: Matéria
+        course: Matéria
         final_dt: Data da Apresentação
+        sections:
+          description: Etapa
+          grade: Nota
+          done: Concluído
       exam:
         dt_exam: Data da Prova
         location: Local da Prova
-        matter: Matéria
+        course: Matéria
         grade: Preciso Tirar
-      subject:
-        name: Assunto
+        subjects:
+          name: Assunto
   activerecord:
     attributes:
       subject:

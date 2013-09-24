@@ -1,6 +1,8 @@
 class Exam < ActiveRecord::Base
   attr_accessible :dt_exam, :grade, :location, :course_id, :subjects_attributes
 
+  validates_presence_of :course_id, :dt_exam
+  validates_length_of :dt_exam, is: 10
   belongs_to :course
   has_many :subjects
   accepts_nested_attributes_for :subjects, allow_destroy: true

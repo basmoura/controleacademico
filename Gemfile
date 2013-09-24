@@ -48,6 +48,7 @@ gem 'nested_form'
 
 # Progress Bar
 gem 'css3-progress-bar-rails', git: 'git://github.com/basmoura/css3-progress-bar-rails.git'
+# gem 'css3-progress-bar-rails', path: '~/Development/Ruby/css3-progress-bar-rails'
 # To use debugger
 # gem 'debugger'
 #
