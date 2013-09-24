@@ -1,10 +1,8 @@
 class Work < ActiveRecord::Base
   attr_accessible :course_id, :title, :final_dt, :sections_attributes
-
   validates_presence_of :title, :final_dt, :course_id
   validates_length_of :title, maximum: 40
   validates_length_of :final_dt, is: 10
-  #  validate :final_dt_validation, before: [:create]
   has_many :sections
   belongs_to :course
   accepts_nested_attributes_for :sections, allow_destroy: true
@@ -24,16 +22,13 @@ class Work < ActiveRecord::Base
   end
 
   private
-  def sections_stats(id)
-    @work = Work.find(id)
 
-    unless @work.sections.empty?
-      @work.sections.where("done = true").count.to_d / @work.sections.count.to_d * 100
+  def sections_stats(id)
+    work = Work.find(id)
+
+    unless work.sections.empty?
+      value = work.sections.where("done = true").count.to_d / work.sections.count.to_d * 100
     end
+    value ||= 0
   end
-  #  def final_dt_validation
-  #    if DateTime.now.strftime("%d/%m/%Y") > final_dt
-  #      errors.add :final_dt, ""
-  #    end
-  #  end
 end

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Controle Acadêmico</title>
-<%= stylesheet_link_tag    "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
-<%= csrf_meta_tags %>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<header>
-  <div class="top-row col-md-12">
-    <%= image_tag("rails.png", class: 'img-rounded img-user') %>
-    <div class="caption">
-      <span>Breno Moura</span>
+  <head>
+    <title>Controle Acadêmico</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <div class="top-row col-md-12">
+        <%= image_tag("rails.png", class: 'img-rounded img-user') %>
+        <div class="caption">
+          <span>Breno Moura</span>
+          <div class='pull-right'>
+            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="col-md-12">
+      <% flash.each do |key, f| %>
+      <div class="alert alert-<%= key %>">
+        <%= f %>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+      <% end %>
     </div>
-  </div>
-</header>
-<div class="col-md-12">
-  <% flash.each do |key, f| %>
-  <div class="<%= key %>"><%= f %>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  <% end %>
-</div>
-<div class="col-md-12">
-  <%= yield %>
-</div>
-</body>
+    <div class="col-md-12">
+      <%= yield %>
+    </div>
+  </body>
 </html>

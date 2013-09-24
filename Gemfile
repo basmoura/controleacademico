@@ -46,6 +46,13 @@ gem 'will_paginate'
 # Nested Form
 gem 'nested_form'
 
+# Devise
+gem 'devise'
+
+# OmniAuth Facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Progress Bar
 gem 'css3-progress-bar-rails', git: 'git://github.com/basmoura/css3-progress-bar-rails.git'
 # gem 'css3-progress-bar-rails', path: '~/Development/Ruby/css3-progress-bar-rails'
