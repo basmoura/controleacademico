@@ -7,10 +7,7 @@ class WorksController < ApplicationController
       redirect_to root_path
       flash["alert alert-success"] = "Trabalho cadastrado com sucesso."
     else
-      @works = Work.order("final_dt").paginate(page: params[:work_page])
-      @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
-      @exam = Exam.new
-      @exam.subjects.build
+      self.create_work
       render "home/index"
     end
   end
@@ -41,10 +38,15 @@ class WorksController < ApplicationController
 
   private
   def set_work
-    @works = Work.order("final_dt").paginate(page: params[:work_page])
     @work = Work.find(params[:id])
+    self.create_work
+  end
+
+  protected
+  def create_work
+    @works = Work.order("final_dt").paginate(page: params[:work_page])
     @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
     @exam = Exam.new
     @exam.subjects.build
-  end
+    end
 end

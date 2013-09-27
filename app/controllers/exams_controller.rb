@@ -8,7 +8,7 @@ class ExamsController < ApplicationController
       redirect_to root_path
       flash["alert alert-success"] = "Prova cadastrada com sucesso."
     else
-      @exams = Exam.order("dt_exam").paginate(page: params[:page])
+      self.create_exam
       render "home/index"
     end
   end
@@ -35,9 +35,13 @@ class ExamsController < ApplicationController
 
   private
   def set_exam
+    @exam = Exam.find(params[:id])
+  end
+
+  protected
+  def create_exam
     @works = Work.order("final_dt").paginate(page: params[:work_page])
     @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
-    @exam = Exam.find(params[:id])
     @work = Work.new
     @work.sections.build
   end
