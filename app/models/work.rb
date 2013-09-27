@@ -7,6 +7,9 @@ class Work < ActiveRecord::Base
   belongs_to :course
   accepts_nested_attributes_for :sections, allow_destroy: true
 
+  before_create :set_current_user
+  default_scope conditions: { user_id: Thread.current[:user] }
+
   self.per_page = 5
 
   def final_dt
@@ -22,7 +25,6 @@ class Work < ActiveRecord::Base
   end
 
   private
-
   def sections_stats(id)
     work = Work.find(id)
 
@@ -30,5 +32,9 @@ class Work < ActiveRecord::Base
       value = work.sections.where("done = true").count.to_d / work.sections.count.to_d * 100
     end
     value ||= 0
+  end
+
+  def set_current_user
+    user_id = Thread.current[:user]
   end
 end

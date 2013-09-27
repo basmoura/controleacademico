@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924201124) do
+ActiveRecord::Schema.define(:version => 20130924214810) do
 
   create_table "courses", :force => true do |t|
     t.string   "title"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20130924201124) do
     t.integer  "credits"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "courses", ["user_id"], :name => "index_courses_on_user_id"
 
   create_table "exams", :force => true do |t|
     t.integer  "course_id"
@@ -28,7 +31,10 @@ ActiveRecord::Schema.define(:version => 20130924201124) do
     t.decimal  "grade"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "exams", ["user_id"], :name => "index_exams_on_user_id"
 
   create_table "sections", :force => true do |t|
     t.string   "description"
@@ -37,14 +43,20 @@ ActiveRecord::Schema.define(:version => 20130924201124) do
     t.integer  "work_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "sections", ["user_id"], :name => "index_sections_on_user_id"
 
   create_table "subjects", :force => true do |t|
     t.string   "name"
     t.integer  "exam_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "subjects", ["user_id"], :name => "index_subjects_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -74,6 +86,9 @@ ActiveRecord::Schema.define(:version => 20130924201124) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.datetime "final_dt"
+    t.integer  "user_id"
   end
+
+  add_index "works", ["user_id"], :name => "index_works_on_user_id"
 
 end
