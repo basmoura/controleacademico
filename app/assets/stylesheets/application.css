@@ -16,7 +16,9 @@
 header { padding-bottom: 15px; }
 .top-row { background: url('bkg.png'); box-shadow: 0 0 4px black; padding: 5px 0 0 5px; color: white; text-shadow: 1px 1px 0px black; }
 .img-user { width: 60px; height: 60px; }
-.panel-heading { font-size: 14px; border-top: 4px solid black; background: white }
+.panel-heading { font-size: 14px; ; background: white }
+.panel-work  { border-top: 3px solid #961F24 !important; }
+.panel-exam { border-top: 3px solid #669638 !important; }
 .form-title { font-size: 12px; }
 .help-inline { color: #b94a48; font-size: 12px; }
 .panel-heading th { font-size: 14px }
