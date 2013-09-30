@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130927011551) do
+ActiveRecord::Schema.define(:version => 20130930222056) do
 
   create_table "courses", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(:version => 20130927011551) do
 
   add_index "exams", ["user_id"], :name => "index_exams_on_user_id"
 
+  create_table "grades", :force => true do |t|
+    t.decimal  "value"
+    t.integer  "exam_id"
+    t.integer  "unit_id"
+    t.integer  "matter_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sections", :force => true do |t|
     t.string   "description"
     t.decimal  "grade"
@@ -57,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20130927011551) do
   end
 
   add_index "subjects", ["user_id"], :name => "index_subjects_on_user_id"
+
+  create_table "units", :force => true do |t|
+    t.string   "title"
+    t.integer  "matter_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -91,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130927011551) do
     t.datetime "updated_at", :null => false
     t.datetime "final_dt"
     t.integer  "user_id"
+    t.integer  "unit_id"
   end
 
   add_index "works", ["user_id"], :name => "index_works_on_user_id"
