@@ -11,17 +11,19 @@
   <body>
     <header>
       <div class="top-row col-md-12">
-        <%= image_tag("rails.png", class: 'img-rounded img-user') %>
-        <div class="caption">
-          <span>Breno Moura</span>
+        <% if user_signed_in? %>
+        <%= image_tag(current_user.avatar_file_name, class: 'img-rounded img-user') %>
+         <div class="caption">
+          <%= current_user.name %>
+        <% end %>
           <div class='pull-right'>
             <% unless user_signed_in? %>
             <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
             <% else %>
             <%= link_to "Sair", destroy_user_session_path, method: :delete if user_signed_in? %>
             <% end %>
-          </div>
         </div>
+      </div>
       </div>
     </header>
     <div class="col-md-12">
