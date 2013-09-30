@@ -1,5 +1,12 @@
 class WorksController < ApplicationController
-  before_filter :set_work, except: [:create]
+  before_filter :set_work, except: [:index, :create]
+
+  def index
+    @works = Work.all
+    respond_to do |format|
+      format.json { render json: @works }
+    end
+  end
 
   def create
     @work = Work.new(params[:work])
@@ -48,5 +55,5 @@ class WorksController < ApplicationController
     @exams = Exam.order("dt_exam").paginate(page: params[:exam_page])
     @exam = Exam.new
     @exam.subjects.build
-    end
+  end
 end
