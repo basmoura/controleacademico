@@ -21,7 +21,7 @@ class Work < ActiveRecord::Base
   end
 
   def sections_percent(id)
-   "#{sections_stats(id).round(2)}%"
+    "#{sections_stats(id).round(2)}%"
   end
 
   private
