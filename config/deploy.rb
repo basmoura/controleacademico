@@ -1,10 +1,10 @@
 require "bundler/capistrano"
 
-server "50.116.6.127", :web, :app, :db, primary: true
+server "54.213.2.150", :web, :app, :db, primary: true
 
 set :application, "controleacademico"
 
-set :user, "deployer"
+set :user, "ubuntu"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
@@ -14,6 +14,8 @@ set :repository, "https://github.com/basmoura/controleacademicomobile.git"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:auth_methods] = ["publickey"]
+ssh_options[:keys] = ["/Users/basmoura/basmoura.cer"]
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
@@ -26,7 +28,7 @@ namespace :deploy do
   end
 
   task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/nginx.conf /usr/local/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.yml.example"), "#{shared_path}/config/database.yml"
